@@ -1,0 +1,13 @@
+# 常用api
+local : 执行本地命令，如：local('uname -s')
+lcd : 切换本地目录，如：lcd('/home')
+cd : 切换远程目录，如：cd('/etc')
+run : 执行远程命令，如：run('free -m')
+sudo : sudo方式执行远程命令，如：sudo('touch /abc')
+put : 上传本地local.py文件到远程主机并改名为remote.py，如：put('local.py', 'testpath/remote.py')
+get : 从远程主机下载文件到本地，如：get('testpath/remote.py', 'testpath/local.py')
+reboot : 重启远程主机，如：reboot()
+@task : 函数装饰器，标识的函数为fab可调用的，非标记的对fab不可见，纯业务逻辑
+@runs_once : 函数装饰器，标识的函数只会执行一次，不受多台主机影响
+
+# 注意： 使用cd或者lcd的时候，一定要使用with上下文管理
